@@ -1,9 +1,9 @@
 @echo off
 REM ==============================================================================
-REM Alpaca Autonomous Options Alpha Agent - Windows Runner
+REM Oxotradex: Autonomous Options Alpha Agent - Windows Runner
 REM ==============================================================================
 
-echo [INFO] Starting Alpaca Autonomous Options Alpha Agent...
+echo [INFO] Starting Oxotradex Autonomous Options Alpha Agent...
 
 REM Check if .env exists
 if not exist .env (

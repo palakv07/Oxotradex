@@ -1,4 +1,4 @@
-# Slide Presentation: Alpaca Autonomous Options Alpha Agent
+# Slide Presentation: Oxotradex — Autonomous Options Alpha Agent
 
 *Presentation Deck for the Alpaca AI Trading Agents Hackathon (lablab.ai × Alpaca)*  
 *Presenter / Author: Quant AI Team*  
@@ -7,9 +7,9 @@
 ---
 
 ## Slide 1: Title Slide (The Hook)
-- **Title:** Alpaca Autonomous Options Alpha Agent
+- **Title:** Oxotradex: Autonomous Options Alpha Agent
 - **Subtitle:** Monetizing the Volatility Risk Premium via AI Tactical Selection & Inviolable Risk Invariants
-- **Visual:** Terminal UI graphic with live theta decay curve ($\Theta$) and green candlestick overlay ([cover_image.jpg](cover_image.jpg)).
+- **Visual:** High-tech Oxotradex terminal UI graphic with live theta decay curve ($\Theta$) and green candlestick overlay ([cover_image.jpg](cover_image.jpg)).
 - **Key Stats:**
   - Initial Starting Equity: **$100,000.00 (Alpaca Paper)**
   - Core Focus: **Multi-Leg Credit Spreads & Iron Condors**

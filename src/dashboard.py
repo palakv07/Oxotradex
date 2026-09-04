@@ -1,7 +1,8 @@
-"""Streamlit Real-Time Dashboard for Alpaca Autonomous Options Alpha Agent.
+"""Streamlit Real-Time Dashboard for Oxotradex: Autonomous Options Alpha Agent.
 
 Displays portfolio KPIs, live equity curve, open multi-leg spread positions,
 inviolable risk gate status, AI decision audit logs, and interactive kill-switch.
+Fully theme-adaptive for both Light Mode and Dark Mode.
 """
 
 import os
@@ -22,26 +23,94 @@ from src.main import AutonomousAgent
 
 # Page configuration
 st.set_page_config(
-    page_title="Alpaca Options Alpha Agent | Institutional Quant Dashboard",
-    page_icon="📈",
+    page_title="Oxotradex | Autonomous Options Alpha Agent",
+    page_icon="⚡",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# Custom Styling
+# Theme-Adaptive Styling (Supports Light Mode and Dark Mode dynamically)
 st.markdown("""
 <style>
+    /* Metric Cards adapted for both Light and Dark themes */
     .metric-card {
-        background: linear-gradient(135deg, #1e222d 0%, #2a2e39 100%);
-        padding: 18px;
-        border-radius: 10px;
+        background-color: var(--secondary-background-color, rgba(128, 128, 128, 0.08));
+        border: 1px solid rgba(128, 128, 128, 0.2);
         border-left: 5px solid #00c087;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        padding: 16px 18px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .metric-title { font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; font-weight: 600; }
-    .metric-value { font-size: 1.7rem; font-weight: 700; color: #ffffff; margin-top: 4px; }
-    .status-badge-ok { background-color: #064e3b; color: #34d399; padding: 4px 10px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; }
-    .status-badge-alert { background-color: #7f1d1d; color: #f87171; padding: 4px 10px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; }
+    .metric-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
+    .metric-title {
+        font-size: 0.82rem;
+        color: var(--text-color, inherit);
+        opacity: 0.75;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    .metric-value {
+        font-size: 1.65rem;
+        font-weight: 800;
+        color: var(--text-color, inherit);
+        margin-top: 4px;
+    }
+    .pnl-positive {
+        color: #059669 !important;
+    }
+    .pnl-negative {
+        color: #dc2626 !important;
+    }
+    @media (prefers-color-scheme: dark) {
+        .pnl-positive { color: #34d399 !important; }
+        .pnl-negative { color: #f87171 !important; }
+    }
+    .status-badge-ok {
+        background-color: rgba(16, 185, 129, 0.15);
+        color: #059669;
+        border: 1px solid rgba(16, 185, 129, 0.35);
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 0.82rem;
+        display: inline-block;
+    }
+    .status-badge-alert {
+        background-color: rgba(239, 68, 68, 0.15);
+        color: #dc2626;
+        border: 1px solid rgba(239, 68, 68, 0.35);
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 0.82rem;
+        display: inline-block;
+    }
+    .control-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 14px;
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--text-color, inherit) !important;
+    }
+    .brand-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 20px;
+        background: rgba(0, 192, 135, 0.12);
+        color: #00c087;
+        font-weight: 700;
+        font-size: 0.85rem;
+        border: 1px solid rgba(0, 192, 135, 0.25);
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -57,24 +126,24 @@ base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 cover_path = os.path.join(base_dir, "docs", "cover_image.jpg")
 icon_path = os.path.join(base_dir, "assets", "alpaca_icon.png")
 
+# Sidebar Branding: Oxotradex Icon and Title (Adapts to Light and Dark Mode)
 if os.path.exists(icon_path):
-    st.sidebar.image(icon_path, width=42)
-elif os.path.exists(cover_path):
-    st.sidebar.image(cover_path, use_container_width=True)
+    st.sidebar.image(icon_path, width=48)
 
 st.sidebar.markdown("""
-<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-    <span style="font-size: 1.4rem;">🦙</span>
-    <span style="font-size: 1.15rem; font-weight: 700; color: #ffffff;">Control Center</span>
+<div class="control-header">
+    <span>⚡</span>
+    <span>Oxotradex Control Centre</span>
 </div>
 """, unsafe_allow_html=True)
 
 # Environment Badges
 paper_mode = settings.PAPER
 dry_run = settings.DRY_RUN
+st.sidebar.markdown(f"**Agent Engine:** `Oxotradex v1.0`")
 st.sidebar.markdown(f"**Environment:** {'`PAPER TRADING`' if paper_mode else '`LIVE`'}")
-st.sidebar.markdown(f"**Execution:** {'`DRY-RUN SIMULATION`' if dry_run else '`BROKER ORDERS`'}")
-st.sidebar.markdown(f"**LLM Provider:** `{settings.LLM_PROVIDER.upper()}`")
+st.sidebar.markdown(f"**Execution Mode:** {'`DRY-RUN SIMULATION`' if dry_run else '`BROKER ORDERS`'}")
+st.sidebar.markdown(f"**LLM Intelligence:** `{settings.LLM_PROVIDER.upper()}`")
 st.sidebar.markdown("---")
 
 # Kill-Switch Management
@@ -98,11 +167,11 @@ st.sidebar.markdown("---")
 
 # Manual Scan Trigger
 st.sidebar.subheader("Manual Execution")
-if st.sidebar.button("Run Autonomous Scan Cycle Now"):
+if st.sidebar.button("Run Oxotradex Scan Cycle Now"):
     with st.spinner("Executing autonomous cycle (regime detection, candidate scan, LLM decision, risk gates)..."):
         agent = AutonomousAgent()
         agent.run_cycle()
-        st.success("Autonomous scan cycle completed!")
+        st.success("Oxotradex scan cycle completed!")
         st.rerun()
 
 if st.sidebar.button("Refresh Dashboard"):
@@ -114,8 +183,13 @@ if st.sidebar.button("Refresh Dashboard"):
 if os.path.exists(cover_path):
     st.image(cover_path, use_container_width=True)
 
-st.title("Alpaca Autonomous Options Alpha Agent")
-st.caption("Lablab.ai x Alpaca AI Trading Agents Hackathon | Theta-Harvesting Defined-Risk Spreads & Iron Condors")
+col_title, col_pill = st.columns([3, 1])
+with col_title:
+    st.title("Oxotradex: Autonomous Options Alpha Agent")
+    st.caption("Lablab.ai × Alpaca AI Trading Agents Hackathon | High-Probability Theta-Harvesting Engine")
+with col_pill:
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown('<div style="text-align: right;"><span class="brand-pill">⚡ Powered by Oxotradex</span></div>', unsafe_allow_html=True)
 
 # Fetch live account data
 acct = client.get_account_info()
@@ -128,7 +202,7 @@ circuit_limit = target_equity * settings.DAILY_LOSS_CIRCUIT_BREAKER_PCT
 open_trades = db.get_open_trades()
 open_count = len(open_trades)
 
-# Top KPI Metric Cards
+# Top KPI Metric Cards (Fully Adaptive)
 col1, col2, col3, col4, col5 = st.columns(5)
 
 with col1:
@@ -140,11 +214,11 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
-    pnl_color = "#34d399" if daily_pnl >= 0 else "#f87171"
+    pnl_class = "pnl-positive" if daily_pnl >= 0 else "pnl-negative"
     st.markdown(f"""
     <div class="metric-card">
         <div class="metric-title">Today's P&L</div>
-        <div class="metric-value" style="color: {pnl_color};">${daily_pnl:+,.2f} ({daily_pnl_pct*100:+.2f}%)</div>
+        <div class="metric-value {pnl_class}">${daily_pnl:+,.2f} ({daily_pnl_pct*100:+.2f}%)</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -170,7 +244,7 @@ with col5:
     st.markdown(f"""
     <div class="metric-card">
         <div class="metric-title">Circuit Breaker (-2.5%)</div>
-        <div class="metric-value" style="font-size: 1.2rem;"><span class="{cb_class}">{cb_status}</span></div>
+        <div class="metric-value" style="font-size: 1.15rem;"><span class="{cb_class}">{cb_status}</span></div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -179,11 +253,10 @@ st.markdown("<br>", unsafe_allow_html=True)
 # ------------------------------------------------------------------------------
 # Daily Circuit Breaker Gauge / Progress
 # ------------------------------------------------------------------------------
-st.subheader("Deterministic Risk Gates Status")
+st.subheader("Oxotradex Deterministic Risk Gates Status")
 risk_col1, risk_col2 = st.columns([2, 1])
 
 with risk_col1:
-    # Circuit Breaker Distance Meter
     pct_of_limit = min(1.0, max(0.0, abs(daily_pnl) / circuit_limit)) if daily_pnl < 0 else 0.0
     st.write(f"**Daily Loss Circuit Breaker Headroom:** Current P&L: **${daily_pnl:+,.2f}** | Daily Loss Limit: **-${circuit_limit:,.2f}**")
     st.progress(pct_of_limit, text=f"Circuit Breaker Consumption: {pct_of_limit*100:.1f}%")
@@ -212,7 +285,7 @@ if open_trades:
         exp_date = legs[0].get("expiration", "N/A") if legs else "N/A"
         entry_cred = float(t.get("entry_credit", 0.0))
         qty = int(t.get("contracts", 1))
-        # Estimate mark
+        # Estimate current mark
         mark = round(entry_cred * 0.95, 2)
         unrealized = round((entry_cred - mark) * qty * 100.0, 2)
         harvested_pct = round(((entry_cred - mark) / entry_cred) * 100.0, 1) if entry_cred > 0 else 0.0
@@ -234,12 +307,12 @@ if open_trades:
     df_pos = pd.DataFrame(pos_data)
     st.dataframe(df_pos, use_container_width=True)
 else:
-    st.info("No open spread positions currently active. The agent will open positions during the next scan cycle.")
+    st.info("No open spread positions currently active. Oxotradex will open positions during the next scan cycle.")
 
 st.markdown("---")
 
 # ------------------------------------------------------------------------------
-# Equity Curve & Historical Performance
+# Equity Curve & Historical Performance (Theme-Transparent Plotly)
 # ------------------------------------------------------------------------------
 st.subheader("Portfolio Equity Curve & Drawdown")
 
@@ -255,14 +328,29 @@ if snapshots:
         markers=True,
         labels={"current_equity": "Equity ($)", "date": "Date"}
     )
-    fig.update_layout(template="plotly_dark", margin=dict(l=20, r=20, t=40, b=20))
+    fig.update_traces(line=dict(color="#00c087", width=2.5))
+    fig.update_layout(
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        margin=dict(l=20, r=20, t=40, b=20),
+        xaxis=dict(showgrid=True, gridcolor="rgba(128,128,128,0.15)"),
+        yaxis=dict(showgrid=True, gridcolor="rgba(128,128,128,0.15)")
+    )
     st.plotly_chart(fig, use_container_width=True)
 else:
     # Baseline visual representation
     dates = pd.date_range(end=pd.Timestamp.today(), periods=7).strftime("%Y-%m-%d").tolist()
     dummy_equity = [100000.0, 100150.0, 100420.0, 100380.0, 100710.0, 100980.0, equity]
     fig = px.line(x=dates, y=dummy_equity, markers=True, labels={"x": "Date", "y": "Equity ($)"})
-    fig.update_layout(template="plotly_dark", title="Equity Growth (Paper Account Baseline)")
+    fig.update_traces(line=dict(color="#00c087", width=2.5))
+    fig.update_layout(
+        title="Equity Growth (Paper Account Baseline)",
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        margin=dict(l=20, r=20, t=40, b=20),
+        xaxis=dict(showgrid=True, gridcolor="rgba(128,128,128,0.15)"),
+        yaxis=dict(showgrid=True, gridcolor="rgba(128,128,128,0.15)")
+    )
     st.plotly_chart(fig, use_container_width=True)
 
 # ------------------------------------------------------------------------------
@@ -305,7 +393,7 @@ st.markdown("---")
 # ------------------------------------------------------------------------------
 # AI Decision & Risk Gate Audit Log
 # ------------------------------------------------------------------------------
-st.subheader("AI Decision & Risk Gate Audit Trail")
+st.subheader("Oxotradex Decision & Risk Gate Audit Trail")
 decisions = db.get_recent_decisions(limit=10)
 
 if decisions:
@@ -329,7 +417,7 @@ if decisions:
                 except Exception:
                     st.write("Risk evaluation details not available.")
 
-            st.markdown("**LLM Reasoning & Output:**")
+            st.markdown("**Oxotradex LLM Reasoning & Output:**")
             st.code(d.get("llm_raw_response", ""), language="json")
 else:
-    st.info("No decision cycles logged yet. Run a scan cycle to populate the audit trail.")
+    st.info("No decision cycles logged yet. Run an Oxotradex scan cycle to populate the audit trail.")

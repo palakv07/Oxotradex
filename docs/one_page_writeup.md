@@ -1,6 +1,7 @@
-# Alpaca Autonomous Options Alpha Agent: Executive Summary & System Write-up
+# Oxotradex: Autonomous Options Alpha Agent — Executive Summary & System Write-up
 
 **Submission for:** Alpaca AI Trading Agents Hackathon (lablab.ai × Alpaca)  
+**Agent Name:** Oxotradex  
 **Strategy Focus:** High-Probability Theta-Harvesting Defined-Risk Options Spreads & Iron Condors  
 **Account Baseline:** $100,000 Starting Equity (Alpaca Paper Trading Environment)  
 **License:** MIT Open Source  
@@ -8,9 +9,9 @@
 ---
 
 ## 1. Executive Summary & Quantitative Edge
-The **Alpaca Autonomous Options Alpha Agent** is an institutional-grade, end-to-end autonomous trading system engineered for consistent, positive-expectancy alpha generation via quantitative options underwriting. 
+**Oxotradex** is an institutional-grade, end-to-end autonomous options trading agent engineered for consistent, positive-expectancy alpha generation via quantitative derivatives underwriting. 
 
-Unlike retail directional betting or unconstrained LLM trading bots that suffer from hallucinated order parameters, this agent monetizes the **Volatility Risk Premium (VRP)**—the structural market anomaly where implied volatility persistently exceeds realized volatility over time. By writing defined-risk credit spreads (Bull Put Spreads, Bear Call Spreads) and Iron Condors with 21–35 Days to Expiration (DTE), the agent systematically captures accelerated non-linear time decay ($\Theta$), while completely bounding tail loss via protective long options wings.
+Unlike retail directional betting or unconstrained LLM trading bots that suffer from hallucinated order parameters, **Oxotradex** monetizes the **Volatility Risk Premium (VRP)**—the structural market anomaly where implied volatility persistently exceeds realized volatility over time. By writing defined-risk credit spreads (Bull Put Spreads, Bear Call Spreads) and Iron Condors with 21–35 Days to Expiration (DTE), Oxotradex systematically captures accelerated non-linear time decay ($\Theta$), while completely bounding tail loss via protective long options wings.
 
 ---
 

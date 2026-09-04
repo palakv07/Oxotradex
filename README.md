@@ -1,4 +1,4 @@
-# Alpaca Autonomous Options Alpha Agent
+# Oxotradex: Autonomous Options Alpha Agent
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python: 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org/)
@@ -6,7 +6,9 @@
 [![Alpaca MCP: Enabled](https://img.shields.io/badge/Alpaca%20MCP-Protocol-orange.svg)](https://github.com/alpacahq/alpaca-mcp-server)
 [![Streamlit: UI](https://img.shields.io/badge/Streamlit-Dashboard-red.svg)](https://streamlit.io/)
 
-> **A production-ready, autonomous AI trading agent for the Alpaca AI Trading Agents Hackathon (lablab.ai × Alpaca).**  
+![Oxotradex Terminal](docs/cover_image.jpg)
+
+> **Oxotradex is a production-ready, autonomous AI trading agent for the Alpaca AI Trading Agents Hackathon (lablab.ai × Alpaca).**  
 > Systematically harvests option volatility risk premium ($\Theta$ decay) through high-probability, defined-risk credit spreads and Iron Condors on liquid index ETFs (`SPY`, `QQQ`, `IWM`), governed by an AI decision engine and 8 inviolable deterministic Python risk gates.
 
 ---
@@ -224,7 +226,7 @@ The agent dispatches standard MCP tools:
 
 ```text
 ┌──────────────────────────────────────────────┐
-│ Alpaca Autonomous Options Alpha Agent        │
+│ Oxotradex: Autonomous Options Alpha Agent    │
 │ Paper Mode: True | Dry Run: False | LLM: gemini│
 └──────────────────────────────────────────────┘
 [*] [INFO] --- Starting Autonomous Scan Cycle at 2026-09-03 14:45:00 UTC ---

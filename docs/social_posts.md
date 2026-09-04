@@ -18,7 +18,7 @@
 > 
 > Instead of guessing where the market will go, our agent underwrites PROBABILITY by monetizing the Volatility Risk Premium (VRP). 
 > 
-> We built the **Alpaca Autonomous Options Alpha Agent** to systematically write defined-risk credit spreads & Iron Condors (21–35 DTE, delta ≤ 0.30). 
+> We built **Oxotradex**, an autonomous options alpha agent to systematically write defined-risk credit spreads & Iron Condors (21–35 DTE, delta ≤ 0.30). 
 > 
 > Every second the market chops, time decay (Theta) works in our favor.
 > 
@@ -105,9 +105,9 @@
 **Theme:** Submission Celebration, Open Source Announcement & Gratitude  
 
 ### Copy:
-> 🚀 Official Submission: **Alpaca Autonomous Options Alpha Agent** for the @lablabai × @AlpacaMarkets AI Trading Agents Hackathon!
+> 🚀 Official Submission: **Oxotradex — Autonomous Options Alpha Agent** for the @lablabai × @AlpacaMarkets AI Trading Agents Hackathon!
 > 
-> We set out to build an institutional-grade autonomous options trading agent that turns the Volatility Risk Premium into systematic returns on a brand-new $100,000 Alpaca paper account.
+> We set out to build **Oxotradex**, an institutional-grade autonomous options trading agent that turns the Volatility Risk Premium into systematic returns on a brand-new $100,000 Alpaca paper account.
 > 
 > 📦 What we built & open-sourced:
 > ✅ Full Autonomous Trading Loop (Regime Scan → Candidate Filter → LLM Tactical Reasoner → Risk Gates → Multi-Leg MLEG Execution)

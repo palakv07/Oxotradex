@@ -1,4 +1,4 @@
-"""Autonomous Options Alpha Agent: Main Execution Loop.
+"""Oxotradex: Autonomous Options Alpha Agent - Main Execution Loop.
 
 Orchestrates market scanning, position management, quantitative regime analysis,
 structured LLM reasoning, deterministic risk gates, and multi-leg order execution.
@@ -26,7 +26,7 @@ from src.logger import log_header, log_info, log_success, log_warning, log_error
 
 
 class AutonomousAgent:
-    """End-to-End Autonomous Trading Agent."""
+    """End-to-End Autonomous Trading Agent powered by Oxotradex."""
 
     def __init__(self, settings: Optional[Settings] = None, dry_run: bool = False):
         self.settings = settings or get_settings()
@@ -34,7 +34,7 @@ class AutonomousAgent:
             self.settings.DRY_RUN = True
 
         log_header(
-            "Alpaca Autonomous Options Alpha Agent",
+            "Oxotradex: Autonomous Options Alpha Agent",
             f"Paper Mode: {self.settings.PAPER} | Dry Run: {self.settings.DRY_RUN} | LLM: {self.settings.LLM_PROVIDER}"
         )
 
@@ -53,7 +53,7 @@ class AutonomousAgent:
             True if cycle completed normally, False if halted by risk gate or kill-switch.
         """
         cycle_start = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
-        log_info(f"--- Starting Autonomous Scan Cycle at {cycle_start} ---")
+        log_info(f"--- Starting Oxotradex Scan Cycle at {cycle_start} ---")
 
         # ----------------------------------------------------------------------
         # Step 1: Check Emergency Kill Switch
@@ -194,13 +194,13 @@ class AutonomousAgent:
                     if open_count >= self.settings.MAX_CONCURRENT_POSITIONS:
                         break
 
-        log_success(f"--- Scan Cycle Completed. Executed {actions_taken} new trade(s). ---")
+        log_success(f"--- Oxotradex Scan Cycle Completed. Executed {actions_taken} new trade(s). ---")
         return True
 
     def start_loop(self, interval_minutes: Optional[int] = None):
         """Run the autonomous agent continuously on the configured schedule."""
         interval = interval_minutes or self.settings.SCAN_INTERVAL_MINUTES
-        log_info(f"Starting autonomous continuous loop. Polling every {interval} minute(s)...")
+        log_info(f"Starting Oxotradex autonomous loop. Polling every {interval} minute(s)...")
 
         try:
             while True:
@@ -213,12 +213,12 @@ class AutonomousAgent:
                 time.sleep(interval * 60)
 
         except KeyboardInterrupt:
-            log_warning("Autonomous loop manually interrupted by user. Shutting down gracefully.")
+            log_warning("Oxotradex loop manually interrupted by user. Shutting down gracefully.")
             sys.exit(0)
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Alpaca Autonomous Options Alpha Agent")
+    parser = argparse.ArgumentParser(description="Oxotradex: Autonomous Options Alpha Agent")
     parser.add_argument("--once", action="store_true", help="Run a single scan cycle and exit")
     parser.add_argument("--dry-run", action="store_true", help="Force dry-run simulation mode")
     parser.add_argument("--interval", type=int, default=None, help="Scan interval in minutes")

@@ -1,4 +1,4 @@
-"""Configuration and Environment Settings for Alpaca Autonomous Options Alpha Agent."""
+"""Configuration and Environment Settings for Oxotradex: Autonomous Options Alpha Agent."""
 
 import json
 from typing import List, Optional

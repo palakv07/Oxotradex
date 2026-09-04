@@ -1,4 +1,4 @@
-"""Deterministic Hard Risk Gates for Alpaca Autonomous Options Alpha Agent.
+"""Deterministic Hard Risk Gates for Oxotradex: Autonomous Options Alpha Agent.
 
 CRITICAL INVARIANT:
 These gates are 100% un-bypassable in Python code. Under no circumstances

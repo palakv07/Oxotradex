@@ -1,4 +1,4 @@
-"""Rich logger and console reporting utilities for Alpaca Options Alpha Agent."""
+"""Rich logger and console reporting utilities for Oxotradex: Autonomous Options Alpha Agent."""
 
 import logging
 import sys
@@ -25,7 +25,7 @@ logging.basicConfig(
         logging.StreamHandler(sys.stdout)
     ]
 )
-logger = logging.getLogger("AlpacaAlphaAgent")
+logger = logging.getLogger("Oxotradex")
 
 
 def log_header(title: str, subtitle: Optional[str] = None):

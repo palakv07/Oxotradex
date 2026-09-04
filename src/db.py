@@ -1,4 +1,4 @@
-"""SQLite Database storage and state persistence for Alpaca Autonomous Options Alpha Agent."""
+"""SQLite Database storage and state persistence for Oxotradex: Autonomous Options Alpha Agent."""
 
 import sqlite3
 import json

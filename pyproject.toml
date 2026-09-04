@@ -3,9 +3,9 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "alpaca-options-alpha-agent"
+name = "oxotradex-options-agent"
 version = "0.1.0"
-description = "Autonomous AI options trading agent for Alpaca Trading API with deterministic risk gates"
+description = "Oxotradex: Autonomous AI options trading agent for Alpaca Trading API with deterministic risk gates"
 readme = "README.md"
 authors = [{ name = "Quant AI Engineering Team" }]
 license = { text = "MIT" }

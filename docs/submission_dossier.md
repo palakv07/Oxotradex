@@ -10,13 +10,13 @@
 ## 📋 Section 1: Basic Information
 
 ### Project Title
-**Alpaca Autonomous Options Alpha Agent: High-Probability Theta-Harvesting Engine with Inviolable Deterministic Risk Gates**
+**Oxotradex: Autonomous Options Alpha Agent — High-Probability Theta-Harvesting Engine with Inviolable Deterministic Risk Gates**
 
 ### Short Description (for Cards & Previews)
-> An institutional-grade autonomous trading agent that monetizes the Volatility Risk Premium via defined-risk options spreads (Bull Put Spreads, Bear Call Spreads, Iron Condors) on liquid index ETFs, combining an AI tactical reasoner with 8 inviolable deterministic Python risk gates and a real-time Streamlit dashboard.
+> Oxotradex is an institutional-grade autonomous trading agent that monetizes the Volatility Risk Premium via defined-risk options spreads (Bull Put Spreads, Bear Call Spreads, Iron Condors) on liquid index ETFs, combining an AI tactical reasoner with 8 inviolable deterministic Python risk gates and a real-time Streamlit dashboard.
 
 ### Long Description (Full Project Description)
-The **Alpaca Autonomous Options Alpha Agent** is an end-to-end, production-ready quantitative algorithmic trading system engineered specifically for the Alpaca AI Trading Agents Hackathon.
+**Oxotradex** is an end-to-end, production-ready quantitative algorithmic trading system engineered specifically for the Alpaca AI Trading Agents Hackathon.
 
 #### The Problem It Solves
 Most autonomous AI trading bots attempt directional equity speculation (e.g., prompting an LLM to predict whether SPY or NVDA will rise or fall). In financial markets, directional price forecasting over short horizons is notoriously low-edge, suffering from slippage, black swan drawdowns, and unpredictable LLM hallucinations. Furthermore, traditional agent frameworks grant LLMs unconstrained authority to place orders, creating immense tail-risk vulnerability.

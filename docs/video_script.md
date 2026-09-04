@@ -1,4 +1,4 @@
-# Video Presentation Script: Alpaca Autonomous Options Alpha Agent
+# Video Presentation Script: Oxotradex — Autonomous Options Alpha Agent
 
 **Target Duration:** 2:45 – 3:00 minutes  
 **Format:** Screen recording + Voiceover (or webcam in corner)  
@@ -11,11 +11,11 @@
 *Show Cover Graphic ([cover_image.jpg](cover_image.jpg)), followed by Slide 2 ("Why 95% of AI Trading Bots Fail").*
 
 **Voiceover / Speaker:**  
-> "Hi everyone, welcome to our submission for the Alpaca AI Trading Agents Hackathon: the **Alpaca Autonomous Options Alpha Agent**.
+> "Hi everyone, welcome to our submission for the Alpaca AI Trading Agents Hackathon: **Oxotradex**, an autonomous options alpha agent.
 > 
 > Most AI trading agents fail because they attempt directional stock prediction—which is essentially a coin flip—and they grant unconstrained LLMs direct access to order execution. One hallucination or black swan volatility spike, and the entire portfolio blows up.
 > 
-> We took an institutional quantitative approach: instead of guessing stock direction, our agent underwrites probability by monetizing the **Volatility Risk Premium** through defined-risk options spreads on liquid index ETFs like SPY, QQQ, and IWM. Most importantly, all trades are governed by **8 inviolable deterministic Python risk gates** that the AI can never override."
+> We took an institutional quantitative approach: instead of guessing stock direction, **Oxotradex** underwrites probability by monetizing the **Volatility Risk Premium** through defined-risk options spreads on liquid index ETFs like SPY, QQQ, and IWM. Most importantly, all trades are governed by **8 inviolable deterministic Python risk gates** that the AI can never override."
 
 ---
 
