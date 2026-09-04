@@ -6,7 +6,6 @@
 [![Alpaca MCP: Enabled](https://img.shields.io/badge/Alpaca%20MCP-Protocol-orange.svg)](https://github.com/alpacahq/alpaca-mcp-server)
 [![Streamlit: UI](https://img.shields.io/badge/Streamlit-Dashboard-red.svg)](https://streamlit.io/)
 
-![Oxotradex Terminal](docs/cover_image.jpg)
 
 > **Oxotradex is a production-ready, autonomous AI trading agent for the Alpaca AI Trading Agents Hackathon (lablab.ai × Alpaca).**  
 > Systematically harvests option volatility risk premium ($\Theta$ decay) through high-probability, defined-risk credit spreads and Iron Condors on liquid index ETFs (`SPY`, `QQQ`, `IWM`), governed by an AI decision engine and 8 inviolable deterministic Python risk gates.
