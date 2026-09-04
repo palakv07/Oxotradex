@@ -24,7 +24,7 @@ from src.main import AutonomousAgent
 # Page configuration
 st.set_page_config(
     page_title="Oxotradex | Autonomous Options Alpha Agent",
-    page_icon="⚡",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -132,7 +132,7 @@ if os.path.exists(icon_path):
 
 st.sidebar.markdown("""
 <div class="control-header">
-    <span>⚡</span>
+    <span></span>
     <span>Oxotradex Control Centre</span>
 </div>
 """, unsafe_allow_html=True)
