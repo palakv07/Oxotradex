@@ -1,0 +1,13 @@
+alpaca-py>=0.38.0
+pydantic>=2.7.0
+pydantic-settings>=2.2.0
+python-dotenv>=1.0.0
+rich>=13.7.0
+plotly>=5.22.0
+streamlit>=1.35.0
+pandas>=2.2.0
+numpy>=1.26.0
+pytest>=8.2.0
+google-genai>=0.1.1
+openai>=1.30.0
+anthropic>=0.28.0
